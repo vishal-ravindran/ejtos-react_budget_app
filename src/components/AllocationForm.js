@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const {  currency,dispatch,remaining  } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -34,6 +34,9 @@ const AllocationForm = (props) => {
             }
     };
 
+  
+
+    
     return (
         <div>
             <div className='row'>
@@ -60,6 +63,7 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
+                  <label style={{ marginLeft: '2rem' , fontSize:30}}>{getCurrencySymbol(currency)}</label>
                     <input
                         required='required'
                         type='number'
@@ -77,6 +81,21 @@ const AllocationForm = (props) => {
 
         </div>
     );
+};
+
+export const getCurrencySymbol = (currency) => {
+    switch (currency) {
+        case '£ Pound':
+            return '£ ';
+        case '$ Dollar':
+            return '$ ';
+        case '€ Euro':
+            return '€ ';
+        case '₹ Rupee':
+            return '₹ ';
+        default:
+            return '';
+    }
 };
 
 export default AllocationForm;
