@@ -63,7 +63,7 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                  <label style={{ marginLeft: '2rem' , fontSize:30}}>{getCurrencySymbol(currency)}</label>
+                  <label style={{ marginLeft: '2rem' , fontSize:20}}>{getCurrencySymbol(currency)}</label>
                     <input
                         required='required'
                         type='number'
